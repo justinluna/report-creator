@@ -1,0 +1,53 @@
+<aura:component implements="force:appHostable,flexiPage:availableForRecordHome,force:hasRecordId,flexipage:availableForAllPageTypes" controller="namesOfAccount">
+    <aura:attribute name="ListFields" type="Object" />
+    <aura:attribute name="FieldNames" type="List" />
+    <aura:attribute name="fieldSelectValue" type="String" default="" />
+    <aura:attribute name="objectValueString" type="String" default="" />
+    <aura:attribute name="displayColumn" type="String" default="" />
+    <aura:attribute name="optionsFieldSelect" type="List" default="[{ label: 'Name', value: 'Name' },
+                                                                   { label: 'Id', value: 'Id' },
+                                                                   { label: 'Phone', value: 'Phone' }]"/>
+    
+    <lightning:card>
+        <div class="select">
+            <lightning:select aura:id="objectSelect" name = "objectSelect" label = "Object" value="{!v.objectValueString}">
+                <option value="">Select an Object</option>
+                <option value="Account">Account</option>
+                <option value="Contact">Contact</option>
+                <option value="Lead">Lead</option>
+                <option value="Opportunity">Opportunity</option>
+            </lightning:select>
+        </div>
+        <!-- <lightning:input value="{!v.fieldValueString}" label="Enter the Field" onchange="{!c.objectChange}"/> -->
+        <lightning:dualListbox name="FieldSelect"
+                               label= "Select Field"
+                               sourceLabel="Available"
+                               selectedLabel="Selected"
+                               fieldLevelHelp="This is a dual listbox"
+                               options="{!v.optionsFieldSelect}"
+                               onchange="{! c.fieldListChange }"/>
+        
+        <lightning:button label="Execute Query" title="Execute Query" onclick="{! c.executeQuery }"/>
+    </lightning:card>
+    <lightning:card>
+        <h1 class="title">{!v.objectValueString}</h1>
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer"> 
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <aura:iteration items="{!v.FieldNames}" var="fieldNames">
+                    	<th scope="col">{!fieldNames}</th>
+                    </aura:iteration>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.ListFields}" var="fields">
+                    <tr scope="row">
+                        <td> {!fields.Name}</td>
+                        <td> {!fields.Phone}</td>
+                        <td> {!fields.Id}</td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </lightning:card>
+</aura:component>
