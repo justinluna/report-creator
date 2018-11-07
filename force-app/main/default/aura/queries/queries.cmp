@@ -1,6 +1,7 @@
 <aura:component implements="force:appHostable,flexiPage:availableForRecordHome,force:hasRecordId,flexipage:availableForAllPageTypes" controller="namesOfAccount">
     <aura:attribute name="ListFields" type="Object" />
     <aura:attribute name="FieldNames" type="List" />
+    <aura:attribute name="individualFields" type="String" />
     <aura:attribute name="fieldSelectValue" type="String" default="" />
     <aura:attribute name="objectValueString" type="String" default="" />
     <aura:attribute name="displayColumn" type="String" default="" />
@@ -43,8 +44,8 @@
                 <aura:iteration items="{!v.ListFields}" var="fields">
                     <tr scope="row">
                         <td> {!fields.Name}</td>
-                        <td> {!fields.Phone}</td>
-                        <td> {!fields.Id}</td>
+                        <td> {!fields.Phone} </td>
+                        <td> {!fields.Id} </td>
                     </tr>
                 </aura:iteration>
             </tbody>

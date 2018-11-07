@@ -5,5 +5,6 @@
     executeQuery: function (component, event, helper) {
         helper.helperExecuteQuery(component);
         helper.helperGetRowNames(component);
+        //component.set("v.individualFields", "{!fields.Name}");
     }
 })
