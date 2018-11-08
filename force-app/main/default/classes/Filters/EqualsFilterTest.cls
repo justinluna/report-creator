@@ -6,7 +6,7 @@ public class EqualsFilterTest {
     }
 
     @istest static void getNameShouldReturnNameOfFilter() {
-      EqualsFilter equalsFilter = new EqualsFilter();
+      Filter equalsFilter = new EqualsFilter();
       System.assertEquals('equals', equalsFilter.getName());
     }
 }
