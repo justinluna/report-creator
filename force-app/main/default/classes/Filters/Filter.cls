@@ -1,7 +1,7 @@
 public abstract class Filter {
 
-  public String execute(String expected, String field) {
-    return 'WHERE ' + field + getOperator() + expected;
+  public String execute(Object expected, Object field) {
+    return 'WHERE ' + String.valueOf(field) + getOperator() + String.valueOf(expected);
   }
 
   abstract public String getName();
