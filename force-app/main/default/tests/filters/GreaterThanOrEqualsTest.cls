@@ -2,16 +2,13 @@
 public class GreaterThanOrEqualsTest {
   @IsTest
   static void executeShouldReturnCorrectStatement(){
-
-    Filter GreaterThanOrEquals = new GreaterThanOrEquals();
-    test.startTest();
-    System.assertEquals('WHERE Count >= 8', doesNotEqualFilter.execute(8, 'Count'));
-    test.stopTest();
+    Filter greaterThanOrEquals = new GreaterThanOrEqualsFilter();
+    System.assertEquals('WHERE Count >= 8', greaterThanOrEquals.execute(8, 'Count'));
   }
 
   @IsTest static void getNameShouldReturnNameOfFilter() {
-        Filter greaterThanFilter = new GreaterThanFilter();
-        System.assertEquals('greater than or equals', greaterThanFilter.getName());
+        Filter greaterThanOrEquals = new GreaterThanOrEqualsFilter();
+        System.assertEquals('greater than or equals', greaterThanOrEquals.getName());
   }
 
 }

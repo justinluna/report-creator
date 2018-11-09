@@ -2,7 +2,7 @@
 public class EqualsFilterTest {
     @istest static void executeShouldReturnCorrectStatement() {
       Filter equalsFilter = new EqualsFilter();
-      System.assertEquals('WHERE Name = \'test\'', equalsFilter.execute('\'test\'', 'Name'));
+      System.assertEquals('WHERE Name = \'test\'', equalsFilter.execute('test', 'Name'));
     }
 
     @istest static void getNameShouldReturnNameOfFilter() {

@@ -2,7 +2,7 @@
 public with sharing class DoesNotEqualsTest {
     @istest static void executeShouldReturnCorrectStatement() {
       Filter doesNotEqualFilter = new DoesNotEqualFilter();
-      System.assertEquals('WHERE Name != \'test\'', doesNotEqualFilter.execute('\'test\'', 'Name'));
+      System.assertEquals('WHERE Name != \'test\'', doesNotEqualFilter.execute('test', 'Name'));
     }
 
      @istest static void getNameShouldReturnNameOfFilter() {
